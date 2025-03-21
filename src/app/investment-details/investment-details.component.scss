@@ -1,0 +1,85 @@
+table {
+    width: 100%;
+}
+
+.spinner{
+    position: absolute;
+    margin: auto;
+    top:50%;
+    bottom: 50%;
+    left: 50%;
+    right: 50%;
+}
+
+@media screen and (max-width: 650px){
+    .mdc-data-table__cell,.mdc-data-table__header-cell{
+        padding: 2px 0px;
+    }
+    ng-deep::mat-mdc-paginator-range-label{
+        margin: 0px 2px 0px 2px !important;
+    }
+    table{
+        width: 70%;  
+    }
+}
+  
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+mat-paginator{
+    .mat-mdc-paginator-outer-container{
+        .mat-mdc-paginator-range-label{
+            margin: 0px 2px 0px 2px !important;
+        }
+    }
+}
+
+.mat-column , .mat-row , .mat-cell {
+    width: 100px;
+    max-width: 150px;
+    word-wrap: break-word;
+}
+
+.example-second-header-row {
+    font-style: bold;
+    font-size: 20px;
+}
+
+.right-div{
+    width: 30% !important;
+}
+  
+.main-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title{
+    width: 100%;
+    margin-left: 5%;
+    margin-top: 10%;
+    font-weight: 600;
+}
+  
+  
+.details-card {
+    border-radius: 20px;
+    width: 80%;
+    padding: 0.5rem;
+}
+  
+.details-card-footer {
+    padding: 16px;
+}
+
+.search-bar{
+    border-radius: 20px;
+}
+
+.header-card{
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}

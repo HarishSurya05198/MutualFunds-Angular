@@ -1,0 +1,78 @@
+
+.details-button{
+    width: fit-content;
+    background-color: black !important;
+    color: white !important;
+    border-radius: 20px;
+}
+.details-button:hover{
+  color: #7CB9E8 !important;
+}
+
+.details-button:disabled{
+  cursor: not-allowed !important;
+  background-color: lightgray !important;
+}
+
+.popup{
+  margin: 1rem !important;
+  border-radius: 20px !important;
+}
+
+.details-button:disabled{
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.spinner{
+  position: absolute;
+  margin: auto;
+  top:50%;
+  bottom: 50%;
+  left: 50%;
+  right: 50%;
+}
+  
+.right-div{
+  width: 30% !important;
+}
+
+.main-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-card {
+  border-radius: 20px;
+  max-width: 400px;
+  padding: 0.5rem;
+}
+
+.details-card-footer {
+  padding: 16px;
+}
+
+.mdc-dialog--open .mat-mdc-dialog-surface, .mdc-dialog--closing .mat-mdc-dialog-surface{
+  border-radius: 20px !important;
+  padding: 1rem !important;
+}
+
+.mat-mdc-dialog-surface{
+  border-radius: 20px !important;
+  padding: 1rem !important;
+}
+
+::ng-deep .my-custom-dialog-class {
+
+  .mat-mdc-dialog-surface{
+    border-radius: 20px !important;
+    padding: 0.5rem !important;
+  }
+  .mat-mdc-dialog-actions{
+    padding-left: 5% !important;
+  }
+  // mat-dialog-container {
+  //   padding: 0;
+  // }
+}

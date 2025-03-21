@@ -1,0 +1,36 @@
+<mat-card class="card-container">
+    <mat-card-header>
+      <mat-card-title class="card-title">Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="content-container">
+      <div class="container">
+        <form [formGroup]="userLogin" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" formControlName="email">
+                <div *ngIf="userLogin.controls['email'].hasError('pattern')" class="alert alert-danger">Enter a valid email</div>
+            </div>
+  
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="password">
+            </div>
+            <div *ngIf="errorLogin" class="alert alert-danger">Enter valid Email ID or Credentials</div>
+            <button mat-raised-button type="submit" [disabled]="!userLogin.valid" class="login-button">Send OTP</button>
+        </form>
+    </div>
+    </mat-card-content>
+</mat-card>
+<br>
+<div class="main-div" *ngIf="loggedIn">
+  <div style="width: 0; height: 0; border-left: 20px solid transparent; 
+            border-right: 20px solid transparent; 
+            border-bottom: 20px solid white;"></div>
+</div>
+<div class="main-div" *ngIf="loggedIn"> 
+  <app-otp-login (closeVal)="closeButton($event)" [userVal]="details.data"></app-otp-login>
+</div>
+
+<div *ngIf="loadSpinner" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>

@@ -1,0 +1,54 @@
+
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$MutualFundsApp-primary: mat.m2-define-palette(mat.$m2-indigo-palette);
+$MutualFundsApp-accent: mat.m2-define-palette(mat.$m2-blue-palette, A200, A100, A400);
+
+
+$MutualFundsApp-warn: mat.m2-define-palette(mat.$m2-red-palette);
+
+
+$MutualFundsApp-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $MutualFundsApp-primary,
+    accent: $MutualFundsApp-accent,
+    warn: $MutualFundsApp-warn,
+  )
+));
+
+
+@include mat.all-component-themes($MutualFundsApp-theme);
+
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Calibri', sans-serif;
+  margin-left: 1.5rem;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+background-color: #e4f2fe;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

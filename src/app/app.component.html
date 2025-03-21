@@ -1,0 +1,32 @@
+<nav>
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a [routerLink]='["/home"]'>MutualFunds Sahi Hai</a>
+    </li>
+    <li class="nav-item" *ngIf="user == 'null'">
+      <a [routerLink]='["/login"]'>Login</a>
+    </li>
+    <li class="nav-item" *ngIf="user == 'null'">
+      <a [routerLink]='["/register"]'>Register</a>
+    </li>
+    <li class="nav-item dropdown" *ngIf="user != 'null'">
+      <i class="fa fa-user"></i>
+      <a class="dropbtn">
+        {{user.name}}
+      </a>
+      <div class="dropdown-content" *ngIf="user != 'null'">
+        <a [routerLink]='["/profile"]'>Profile</a>
+        <a [routerLink]='["/list"]'>Investments</a>
+        <a href="#" (click)="logout()">Logout</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<div class="pages">
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer">
+  <marquee><i> *Mutual Fund investments are subject to market risks, read all the scheme related documents carefully. </i></marquee>
+</footer>

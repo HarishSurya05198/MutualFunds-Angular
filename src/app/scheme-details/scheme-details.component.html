@@ -1,0 +1,27 @@
+<div *ngIf="!loadSpinner" class="main-div">
+  <mat-card class="details-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title >{{details.name}}</mat-card-title>
+      <mat-card-subtitle> Scheme Information </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{details.definition}}</p>
+    </mat-card-content>
+    <mat-card-footer class="details-card-footer">
+      <button mat-raised-button (click)="enterAmount()" class="details-button">Register</button>
+    </mat-card-footer>
+  </mat-card>
+</div>
+<br>
+<div class="main-div" *ngIf="booking">
+  <div style="width: 0; height: 0; border-left: 20px solid transparent; 
+            border-right: 20px solid transparent; 
+            border-bottom: 20px solid white;"></div>
+</div>
+<div class="main-div" *ngIf="booking"> 
+  <app-scheme-book (closeVal)="closeButton($event)" [scheme]="details"></app-scheme-book>
+</div>
+
+<div *ngIf="loadSpinner" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>

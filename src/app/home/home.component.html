@@ -1,0 +1,21 @@
+<h2>Welcome to MutualFunds Sahi Hai</h2>
+<br>
+<h5>Choose a scheme : </h5>
+<div class="flex-container ">
+    <div *ngFor="let cat of categories">
+        <mat-expansion-panel class="category-card">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="card-header">{{cat.CategoryName}} &nbsp; ({{cat.SubCategories.length}})</mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list-item *ngFor="let sub of cat.SubCategories">
+                    <div class="subcat" (click)="redirect(sub.SubCategoryId)">{{sub.SubCategoryName}}</div>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+        </mat-expansion-panel>
+        
+    </div>       
+</div>
+
+<div *ngIf="loadSpinner" class="spinner">
+    <mat-spinner></mat-spinner>
+</div>

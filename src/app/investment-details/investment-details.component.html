@@ -1,0 +1,66 @@
+<div *ngIf="loadSpinner" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="main-div">
+  <mat-card class="details-card" appearance="outlined" *ngIf="!loginDisable">
+    <mat-card-header>
+      <mat-card-title class="card-title">Investment List</mat-card-title>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+      <mat-form-field class="search-bar" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput #inputField>
+    </mat-form-field>
+      
+    <table mat-table [dataSource]="investmentData">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="scheme_name">
+          <th mat-header-cell *matHeaderCellDef> Scheme Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.scheme_name}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="user_name">
+            <th mat-header-cell *matHeaderCellDef> Invested By </th>
+            <td mat-cell *matCellDef="let element"> {{element.user_name}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"  class="example-second-header-row"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{inputField.value}}"</td>
+        </tr>
+    </table>
+    <br>
+    <mat-paginator
+      #paginator
+      [pageSizeOptions]="[5, 10, 15]"
+      showFirstLastButtons>
+    </mat-paginator>
+    
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="details-card" appearance="outlined" *ngIf="loginDisable">
+    <mat-card-header class="header-card">
+      <mat-card-title> Please Login to view the investment details </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+

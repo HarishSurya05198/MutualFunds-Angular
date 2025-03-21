@@ -1,0 +1,38 @@
+<div *ngIf="loadSpinner" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+<mat-card class="card-container">
+    <mat-card-header>
+      <mat-card-title class="card-title">Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="content-container">
+      <div class="container">
+        <form [formGroup]="userRegister" (ngSubmit)="verifyPassword()">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" formControlName="name">
+          </div>
+          <div class="form-group">
+              <label>Email</label>
+              <input type="text" class="form-control" formControlName="email">
+              <div *ngIf="userRegister.controls['email'].hasError('pattern')" class="alert alert-danger">Enter a valid email</div>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" class="form-control" formControlName="phone">
+          </div>
+          <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" formControlName="password">
+          </div>
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" formControlName="confirmPassword">
+        </div>
+          <button mat-raised-button type="submit" [disabled]="!userRegister.valid" class="register-button">Register</button>
+      </form>
+    </div>
+    </mat-card-content>
+  </mat-card>
+  
