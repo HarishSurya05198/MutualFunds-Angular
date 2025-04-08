@@ -17,6 +17,8 @@ export class ProfileComponent {
   val:string = 'update';
   loggedUser:any;
   loadSpinner:boolean = false;
+  passwordHide:boolean = false;
+  passwordField:String = '';
 
   constructor(
       private _formbuilder: FormBuilder,
@@ -39,6 +41,7 @@ export class ProfileComponent {
     })
 
     this.setUserValues(this.loggedUser);
+    this.passworToggle();
   }
 
   setUserValues(user:any){
@@ -69,6 +72,20 @@ export class ProfileComponent {
       }
       this.openSnackBar(msg);
     })
+  }
+
+    passworToggle(){
+    this.passwordHide = !this.passwordHide;
+    if(this.passwordHide){
+      let pass = '';
+      for(let item of this.loggedUser.password){
+        pass = pass + "*";
+      }
+      this.passwordField = pass;
+    }
+    else{
+      this.passwordField = this.loggedUser.password;
+    }
   }
 
   editEnable(e:any){
