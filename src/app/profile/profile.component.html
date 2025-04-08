@@ -64,7 +64,11 @@
                 Password
             </td>
             <td>
-                {{loggedUser.password}}
+                {{passwordField}}
+            </td>
+            <td>
+                <img class="icons" *ngIf="passwordHide" src="show.svg" (click)="passworToggle()">
+                <img class="icons" *ngIf="!passwordHide" src="hide.svg" (click)="passworToggle()">
             </td>
         </tr>
       </table>
