@@ -94,7 +94,7 @@ export class LoginComponent {
     this.snackBar.open('Login Success !','', {
       duration: 3000,
     });
-    this.router.navigate(['/home']);
+    window.location.href = '/home';
   }
 }
 

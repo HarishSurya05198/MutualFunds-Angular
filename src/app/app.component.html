@@ -12,7 +12,7 @@
     <li class="nav-item dropdown" *ngIf="user != 'null'">
       <i class="fa fa-user"></i>
       <a class="dropbtn">
-        {{user.name}}
+        {{user.name | initials}}
       </a>
       <div class="dropdown-content" *ngIf="user != 'null'">
         <a [routerLink]='["/profile"]'>Profile</a>
@@ -28,5 +28,5 @@
 </div>
 
 <footer class="footer">
-  <marquee><i> *Mutual Fund investments are subject to market risks, read all the scheme related documents carefully. </i></marquee>
+  <marquee><div><i> *Mutual Fund investments are subject to market risks, read all the scheme related documents carefully. <b [appLoginWarn]="disable">User must Login to Proceed any actions</b> </i> </div></marquee>
 </footer>

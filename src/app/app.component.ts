@@ -10,13 +10,17 @@ import { AuthGuard } from './guard/auth.guard';
 export class AppComponent {
   title = 'MutualFundsApp';
   user:any = 'null';
-
+  disable:Boolean = true;
   constructor(private service:MutualFundServiceService,private guard: AuthGuard){}
 
   ngOnInit(){
     let temp = localStorage.getItem("user");
     if(temp){
       this.user = JSON.parse(temp);
+      this.disable = false;
+    }
+    else{
+      this.disable = true;
     }
     this.service.getRefresh().subscribe(userVal =>{
       if(this.user == "null"){

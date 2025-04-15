@@ -33,6 +33,8 @@ import { AuthInterceptorProvider } from './interceptors/auth-interceptor.service
 import { OtpLoginComponent } from './login/otp-login/otp-login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MutualFundServiceService } from './mutual-fund-service.service';
+import { LoginWarnDirective } from './login-warn.directive';
+import { initialsPipe } from './initials.pipe';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { MutualFundServiceService } from './mutual-fund-service.service';
     InvestmentDetailsComponent,
     OtpLoginComponent,
     ProfileComponent,
+    LoginWarnDirective,
+    initialsPipe
   ],
   imports: [
     BrowserModule,
