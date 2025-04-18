@@ -20,7 +20,7 @@ export class SchemeBookComponent {
   loggedUser:any;
   loadSpinner:boolean = false;
   disableInvest:boolean = true;
-  errorMessage:any = "Please enter valid amount";
+  errorMessage:any = 'VALID_AMOUNT';
 
   constructor(private dialog:MatDialog, private service: MutualFundServiceService,
      private datePipe:DatePipe, private snackBar:MatSnackBar,private router:Router){}
@@ -33,7 +33,7 @@ export class SchemeBookComponent {
     let temp = localStorage.getItem("user");
     if(!temp){
       this.disableInvest = true;
-      this.errorMessage = "User must be logged in to proceed";
+      this.errorMessage = 'LOGIN_WARN';
     }
     else{
       if(this.totalAmount){
@@ -42,7 +42,7 @@ export class SchemeBookComponent {
       }
       else{
         this.disableInvest = true;
-        this.errorMessage = "Please enter valid amount";
+        this.errorMessage = 'VALID_AMOUNT';
       }
     }
   }
@@ -51,12 +51,12 @@ export class SchemeBookComponent {
     let temp = e.target.value;
     if(!temp){
       this.disableInvest = true;
-      this.errorMessage = "Please enter valid amount";
+      this.errorMessage = 'VALID_AMOUNT';
     }
     else{
       if(temp.trim().length == 0){
         this.disableInvest = true;
-        this.errorMessage = "Please enter valid amount";
+        this.errorMessage = 'VALID_AMOUNT';
       }
       else{
         this.checkUser();

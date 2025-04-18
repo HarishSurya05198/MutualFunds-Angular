@@ -5,39 +5,39 @@
 <div class="main-div">
   <mat-card class="details-card" appearance="outlined" *ngIf="!loginDisable">
     <mat-card-header>
-      <mat-card-title class="card-title">Investment List</mat-card-title>
+      <mat-card-title class="card-title">{{ 'INVESTMENT_LIST' | translate }}</mat-card-title>
     </mat-card-header>
     <br>
     <mat-card-content>
       <mat-form-field class="search-bar" appearance="outline">
-        <mat-label>Search</mat-label>
+        <mat-label>{{ 'SEARCH' | translate }}</mat-label>
         <input matInput #inputField>
     </mat-form-field>
       
     <table mat-table [dataSource]="investmentData">
 
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <th mat-header-cell *matHeaderCellDef> {{ 'NUMBER' | translate }}. </th>
           <td mat-cell *matCellDef="let element"> {{element.id}} </td>
         </ng-container>
 
         <ng-container matColumnDef="scheme_name">
-          <th mat-header-cell *matHeaderCellDef> Scheme Name </th>
+          <th mat-header-cell *matHeaderCellDef> {{ 'SCHEME_NAME' | translate }} </th>
           <td mat-cell *matCellDef="let element"> {{element.scheme_name}} </td>
         </ng-container>
       
         <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <th mat-header-cell *matHeaderCellDef> {{ 'DATE' | translate }} </th>
           <td mat-cell *matCellDef="let element"> {{element.date}} </td>
         </ng-container>
       
         <ng-container matColumnDef="amount">
-          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <th mat-header-cell *matHeaderCellDef> {{ 'AMOUNT' | translate }} </th>
           <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
         </ng-container>
     
         <ng-container matColumnDef="user_name">
-            <th mat-header-cell *matHeaderCellDef> Invested By </th>
+            <th mat-header-cell *matHeaderCellDef> {{ 'INVESTED_BY' | translate }} </th>
             <td mat-cell *matCellDef="let element"> {{element.user_name}} </td>
         </ng-container>
       
@@ -45,7 +45,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       
         <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="4">No data matching the filter "{{inputField.value}}"</td>
+          <td class="mat-cell" colspan="4">{{ 'NO_DATA' | translate }} "{{inputField.value}}"</td>
         </tr>
     </table>
     <br>

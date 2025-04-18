@@ -10,6 +10,18 @@
   align-items: center;
 }
 
+.lang{
+  color: white !important;
+}
+
+::ng-deep div .cdk-overlay-pane{
+  width: fit-content !important;
+}
+
+.lang:hover {
+  color: #7CB9E8;
+}
+
 .nav-item{
   list-style: none;
   margin-right: 2%;
