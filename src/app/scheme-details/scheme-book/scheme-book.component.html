@@ -1,12 +1,12 @@
 <div class="main-div">
     <mat-card class="details-card" appearance="outlined">
       <mat-card-header>
-        <mat-card-title >Scheme Booking Details</mat-card-title>
-        <mat-card-subtitle> Scheme Information </mat-card-subtitle>
+        <mat-card-title >{{ 'SCHEME_DETAILS' | translate }}</mat-card-title>
+        <mat-card-subtitle> {{ 'SCHEME_INFO' | translate }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <div>
-          <p>Please enter your amount to be invested in {{scheme.name}} scheme : </p>
+          <p>{{ 'ENTER_AMOUNT1' | translate }} {{scheme.name}} {{ 'ENTER_AMOUNT' | translate }} : </p>
           <mat-form-field appearance="fill">
             <input matInput placeholder="Enter Amount" type="number" (keyup)="checkVal($event)" [(ngModel)]="totalAmount">
             <mat-hint>INR</mat-hint>
@@ -15,20 +15,20 @@
         
       </mat-card-content>
       <mat-card-footer class="details-card-footer">
-        <button mat-raised-button [disabled]="disableInvest" (click)="openPopup()" class="details-button">Invest</button>
-        <mat-error *ngIf="disableInvest">{{errorMessage}}</mat-error>
+        <button mat-raised-button [disabled]="disableInvest" (click)="openPopup()" class="details-button">{{ 'INVEST' | translate }}</button>
+        <mat-error *ngIf="disableInvest">{{errorMessage | translate}}</mat-error>
       </mat-card-footer>
     </mat-card>
 </div>
 
 <ng-template class="popup" #popup let-data>
-  <h2 mat-dialog-title>Confirm Details</h2>
+  <h2 mat-dialog-title>{{ 'CONFIRM' | translate }}</h2>
   <mat-dialog-content>
-    Are you sure you want to invest ₹{{totalAmount}} in {{scheme.name}}?
+    {{ 'SURE' | translate }} ₹{{totalAmount}} {{ 'IN' | translate }} {{scheme.name}}?
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-raised-button class="details-button" mat-dialog-close cdkFocusInitial (click)="investAmount()">Yes</button>
-    <button mat-raised-button class="details-button" mat-dialog-close (click)="closeButton()">No</button>
+    <button mat-raised-button class="details-button" mat-dialog-close cdkFocusInitial (click)="investAmount()">{{ 'YES' | translate }}</button>
+    <button mat-raised-button class="details-button" mat-dialog-close (click)="closeButton()">{{ 'NO' | translate }}</button>
   </mat-dialog-actions>
 </ng-template>
 

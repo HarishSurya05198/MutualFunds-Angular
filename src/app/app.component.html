@@ -1,13 +1,20 @@
 <nav>
   <ul class="nav-list">
     <li class="nav-item">
-      <a [routerLink]='["/home"]'>MutualFunds Sahi Hai</a>
+      <a [routerLink]='["/home"]'>{{ 'TITLE' | translate }}</a>
+    </li>
+    <li class="nav-item">
+      <mat-select auto="width-auto" class="lang" [(value)]="selected" (valueChange)="langChange($event)">
+        <mat-option value="en">ENG</mat-option>
+        <mat-option value="ta">TAM</mat-option>
+        <!-- <mat-option value="option3">Option 3</mat-option> -->
+      </mat-select>
     </li>
     <li class="nav-item" *ngIf="user == 'null'">
-      <a [routerLink]='["/login"]'>Login</a>
+      <a [routerLink]='["/login"]'>{{ 'LOGIN' | translate }}</a>
     </li>
     <li class="nav-item" *ngIf="user == 'null'">
-      <a [routerLink]='["/register"]'>Register</a>
+      <a [routerLink]='["/register"]'>{{ 'REGISTER' | translate }}</a>
     </li>
     <li class="nav-item dropdown" *ngIf="user != 'null'">
       <i class="fa fa-user"></i>
@@ -15,9 +22,9 @@
         {{user.name | initials}}
       </a>
       <div class="dropdown-content" *ngIf="user != 'null'">
-        <a [routerLink]='["/profile"]'>Profile</a>
-        <a [routerLink]='["/list"]'>Investments</a>
-        <a href="#" (click)="logout()">Logout</a>
+        <a [routerLink]='["/profile"]'>{{ 'PROFILE' | translate }}</a>
+        <a [routerLink]='["/list"]'>{{ 'INVESTMENTS' | translate }}</a>
+        <a href="#" (click)="logout()">{{ 'LOGOUT' | translate }}</a>
       </div>
     </li>
   </ul>
@@ -28,5 +35,5 @@
 </div>
 
 <footer class="footer">
-  <marquee><div><i> *Mutual Fund investments are subject to market risks, read all the scheme related documents carefully. <b [appLoginWarn]="disable">User must Login to Proceed any actions</b> </i> </div></marquee>
+  <marquee><div><i> {{ 'DISCLAIMER' | translate }} <b [appLoginWarn]="disable">{{ 'USER_DISCLAIMER' | translate }}</b> </i> </div></marquee>
 </footer>

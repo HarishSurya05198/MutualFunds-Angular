@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { MutualFundServiceService } from './mutual-fund-service.service';
 import { AuthGuard } from './guard/auth.guard';
-
+import ta from '../../public/i18n/ta.json';
+import en from '../../public/i18n/en.json';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +13,12 @@ export class AppComponent {
   title = 'MutualFundsApp';
   user:any = 'null';
   disable:Boolean = true;
-  constructor(private service:MutualFundServiceService,private guard: AuthGuard){}
+  selected:any = 'en';
+  constructor(private service:MutualFundServiceService,private guard: AuthGuard,private translate: TranslateService){
+    this.translate.setTranslation('en',en);
+    this.translate.setTranslation('ta',ta);
+    this.translate.setDefaultLang(this.selected);
+  }
 
   ngOnInit(){
     let temp = localStorage.getItem("user");
@@ -27,6 +34,14 @@ export class AppComponent {
         this.user = userVal;
       }
     })
+  }
+
+  ngOnDestroy(){
+    this.guard.logout();
+  }
+
+  langChange(e:any){
+    this.translate.use(e);
   }
   
   logout(){

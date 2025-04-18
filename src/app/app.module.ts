@@ -35,6 +35,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { MutualFundServiceService } from './mutual-fund-service.service';
 import { LoginWarnDirective } from './login-warn.directive';
 import { initialsPipe } from './initials.pipe';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+export function httpLoaderFactory(http: HttpClient){
+  return new TranslateHttpLoader(http, './i18n','.json')
+}
 
 @NgModule({
   declarations: [
@@ -73,7 +79,14 @@ import { initialsPipe } from './initials.pipe';
     MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide: TranslateLoader,
+        useFactory: ()=> httpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [DatePipe,
     HttpClient,

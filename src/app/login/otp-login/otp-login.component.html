@@ -1,6 +1,6 @@
 <mat-card class="details-card" appearance="outlined">
     <mat-card-header>
-      <mat-card-title >Enter the OTP which has been mailed to </mat-card-title>
+      <mat-card-title >{{ 'ENTER_OTP' | translate }}</mat-card-title>
       <mat-card-subtitle> {{userVal.email}} </mat-card-subtitle>
     </mat-card-header>
     <br>
@@ -10,8 +10,8 @@
       </div>
     </mat-card-content>
     <mat-card-footer class="details-card-footer">
-        <button *ngIf="resend" mat-raised-button (click)="sendOtp()" class="details-button">Resend</button>
-        <button *ngIf="!resend" mat-raised-button [disabled]="disableInvest" (click)="verifyOtp()" class="details-button">Verify OTP</button>
+        <button *ngIf="resend" mat-raised-button (click)="sendOtp()" class="details-button">{{ 'RESEND' | translate }}</button>
+        <button *ngIf="!resend" mat-raised-button [disabled]="disableInvest" (click)="verifyOtp()" class="details-button">{{ 'VERIFY_OTP' | translate }}</button>
         <br>
         <mat-error class="error-message" *ngIf="resend"><i>{{errorMessage}}</i></mat-error>
       </mat-card-footer>

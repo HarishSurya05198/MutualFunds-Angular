@@ -5,7 +5,7 @@
 <mat-card class="card-container">
     <mat-card-header>
       <mat-card-title class="card-title"><div class="d-flex">
-        <p>Profile</p> &nbsp; &nbsp;
+        <p>{{ 'PROFILE' | translate }}</p> &nbsp; &nbsp;
         <img *ngIf="!editEnabled" class="icon-edit ml-auto" (click)="editEnable(true)" alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgNDggNDgiIHdpZHRoPSI0OHB4IiBoZWlnaHQ9IjQ4cHgiPjxwYXRoIGQ9Ik0gMzkuNTE3NTc4IDMuOTk0MTQwNiBDIDM5LjE1NTcwMyAzLjk5NDE0MDYgMzguNzkzNTc4IDQuMTMyNzAzMSAzOC41MTc1NzggNC40MDgyMDMxIEwgMzQuNjUwMzkxIDguMjc1MzkwNiBMIDM5Ljk1ODk4NCAxMy41ODIwMzEgQyA0MC4xNTM5ODQgMTMuNzc4MDMxIDQwLjE1Mzk4NCAxNC4wOTUwMTYgMzkuOTU4OTg0IDE0LjI5MTAxNiBDIDM5Ljc2Mjk4NCAxNC40ODYwMTYgMzkuNDQ3OTUzIDE0LjQ4NjAxNiAzOS4yNTE5NTMgMTQuMjkxMDE2IEwgMzMuOTQzMzU5IDguOTgyNDIxOSBMIDI2Ljg3MTA5NCAxNi4wNTQ2ODggTCAzMi4xNzU3ODEgMjEuMzU1NDY5IEMgMzIuMzcwNzgxIDIxLjU1MTQ2OSAzMi4zNzA3ODEgMjEuODY2NSAzMi4xNzU3ODEgMjIuMDYyNSBMIDEzLjMxNjQwNiA0MC45MjM4MjggQyAxMy4xNzk0MDYgNDEuMDYxODI4IDEzLjAyNjI4MSA0MS4xNjIzNzUgMTIuODYzMjgxIDQxLjIzNDM3NSBMIDUuMzAwNzgxMiA0NS42MzQ3NjYgTCA0LjM2MTMyODEgNDQuNjk1MzEyIEwgNi44NDc2NTYyIDM4LjMzMDA3OCBDIDYuNjg5NjU2MiAzOC4yODAwNzggNi41Mzc1MzEyIDM4LjIxNzcxOSA2LjM5NDUzMTIgMzguMTM2NzE5IEMgNi4yMzE1MzEyIDM4LjA0NzcxOSA2LjA5MDcwMzEgMzcuOTM5MjY2IDUuOTcwNzAzMSAzNy44MjIyNjYgTCAyLjAwMTk1MzEgNDcuOTk0MTQxIEwgMi4wMDE5NTMxIDQ3Ljk5NjA5NCBDIDIwLjQ2ODk1MyA0Ny45OTYwOTQgMzUuMDAxOTUzIDQ3Ljc3MjA5NCAzNS4wMDE5NTMgNDcuNDk2MDk0IEMgMzUuMDAxOTUzIDQ3LjIyODQyOCAyMi4xNTk2NzkgNDcuMDE0ODYzIDQuNTQ2ODc1IDQ3LjAwMTk1MyBMIDEzLjU5OTYwOSA0My40Njg3NSBMIDQ1LjU4OTg0NCAxMS40ODA0NjkgQyA0Ni4xNDE4NDQgMTAuOTI5NDY5IDQ2LjE0MTg0NCAxMC4wMzI0NjkgNDUuNTg5ODQ0IDkuNDgwNDY4OCBMIDQwLjUxNTYyNSA0LjQwODIwMzEgQyA0MC4yNDAxMjUgNC4xMzI3MDMxIDM5Ljg3OTQ1MyAzLjk5NDE0MDYgMzkuNTE3NTc4IDMuOTk0MTQwNiB6IE0gNDAuMDAxOTUzIDUuOTk0MTQwNiBDIDQwLjI1NzgyOCA1Ljk5NDE0MDYgNDAuNTEyNTMxIDYuMDkzNTE1NiA0MC43MDcwMzEgNi4yOTEwMTU2IEMgNDIuMDA2MDMxIDcuNTE0MDE1NiA0My4wOTUwMzEgOS4zNDUwNzgxIDQyLjcwNzAzMSA5LjcwNTA3ODEgQyA0Mi4yNzgwMzEgMTAuMTA1MDc4IDQwLjcwMTk2OSA4Ljk5NzA3ODEgMzkuMjkyOTY5IDcuNzA1MDc4MSBDIDM4LjkwNDk2OSA3LjMxMDA3ODEgMzguOTA0OTY5IDYuNjc5MDE1NiAzOS4yOTI5NjkgNi4yOTEwMTU2IEMgMzkuNDg5OTY5IDYuMDkzNTE1NiAzOS43NDYwNzggNS45OTQxNDA2IDQwLjAwMTk1MyA1Ljk5NDE0MDYgeiBNIDMzLjk0MzM1OSAxMC4zOTQ1MzEgTCAzOC4xODU1NDcgMTQuNjM4NjcyIEwgMzIuNTI1MzkxIDIwLjI5Njg3NSBMIDI4LjI4MzIwMyAxNi4wNTQ2ODggTCAzMy45NDMzNTkgMTAuMzk0NTMxIHogTSAyNi4xNjIxMDkgMTYuNzYxNzE5IEwgNi42OTMzNTk0IDM2LjIzMDQ2OSBDIDYuNTAxMzU5NCAzNi40MjI0NjkgNi40NTc0MjE5IDM2LjYxNjUzMSA2LjQ4MjQyMTkgMzYuNzY5NTMxIEMgNi41MDc0MjE5IDM2LjkyNjUzMSA2LjYxODgxMjUgMzcuMTE2NjI1IDYuODgyODEyNSAzNy4yNjU2MjUgQyA3LjQ0NTgxMjUgMzcuNTgwNjI1IDguMjg1MDc4MSAzNy40Njk4MjggOC43MDUwNzgxIDM3LjA0ODgyOCBMIDkuNDUzMTI1IDM2LjI5ODgyOCBMIDI3LjU3ODEyNSAxOC4xNzc3MzQgTCAyNi4xNjIxMDkgMTYuNzYxNzE5IHogTSAyOC4yODUxNTYgMTguODg0NzY2IEwgOS43NzkyOTY5IDM3LjM4ODY3MiBDIDkuNTMwMjk2OSAzNy42Mzc2NzIgOS41MjUzMjgxIDM4LjU0OTc2NiAxMC40ODYzMjggMzkuNTA5NzY2IEMgMTEuNDQ2MzI4IDQwLjQ3MDc2NiAxMi4zNTk0MjIgNDAuNDY1Nzk3IDEyLjYwNzQyMiA0MC4yMTY3OTcgTCAzMS4xMTEzMjggMjEuNzEwOTM4IEwgMjguMjg1MTU2IDE4Ljg4NDc2NiB6Ii8+PC9zdmc+"/>
       </div></mat-card-title>
     </mat-card-header>
@@ -13,31 +13,31 @@
       <div class="container">
         <form *ngIf="editEnabled" [formGroup]="userRegister">
           <div class="form-group">
-            <label>Name</label>
+            <label>{{ 'NAME' | translate }}</label>
             <input type="text" class="form-control" formControlName="name">
           </div>
           <div class="form-group">
-              <label>Email</label>
+              <label>{{ 'EMAIL' | translate }}</label>
               <input type="text" class="form-control" formControlName="email">
               <div *ngIf="userRegister.controls['email'].hasError('pattern')" class="alert alert-danger">Enter a valid email</div>
           </div>
           <div class="form-group">
-            <label>Phone Number</label>
+            <label>{{ 'PHONE' | translate }}</label>
             <input type="text" class="form-control" formControlName="phone">
           </div>
           <div class="form-group">
-              <label>Password</label>
+              <label>{{ 'PASSWORD' | translate }}</label>
               <input type="password" class="form-control" formControlName="password">
           </div>
           <div class="action-buttons ml-auto">
-            <button mat-raised-button (click)="onSubmit()" type="submit" [disabled]="!userRegister.valid" class="register-button">Update</button>
-            <button mat-raised-button (click)="editEnable(false)" class="register-button">Cancel</button>
+            <button mat-raised-button (click)="onSubmit()" type="submit" [disabled]="!userRegister.valid" class="register-button">{{ 'UPDATE' | translate }}</button>
+            <button mat-raised-button (click)="editEnable(false)" class="register-button">{{ 'CANCEL' | translate }}</button>
           </div>          
       </form>
       <table class="table" *ngIf="!editEnabled">
         <tr class="t-row">
             <td>
-                Name
+                {{ 'NAME' | translate }}
             </td>
             <td>
                 {{loggedUser.name}}
@@ -45,7 +45,7 @@
         </tr>
         <tr class="t-row">
             <td>
-                Phone
+                {{ 'PHONE' | translate }}
             </td>
             <td>
                 {{loggedUser.phone_number}}
@@ -53,7 +53,7 @@
         </tr>
         <tr class="t-row">
             <td>
-                Email
+                {{ 'EMAIL' | translate }}
             </td>
             <td>
                 {{loggedUser.email}}
@@ -61,7 +61,7 @@
         </tr>
         <tr class="t-row">
             <td>
-                Password
+                {{ 'PASSWORD' | translate }}
             </td>
             <td>
                 {{passwordField}}
