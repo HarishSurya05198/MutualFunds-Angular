@@ -6,14 +6,14 @@
       <div class="container">
         <form [formGroup]="userLogin" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label>{{ 'EMAIL' | translate }}</label>
-                <input type="text" class="form-control" formControlName="email">
+                <label for="email">{{ 'EMAIL' | translate }}</label>
+                <input id="email" type="text" class="form-control" formControlName="email">
                 <div *ngIf="userLogin.controls['email'].hasError('pattern')" class="alert alert-danger">{{ 'EMAIL_VALID' | translate }}</div>
             </div>
   
             <div class="form-group">
-                <label>{{ 'PASSWORD' | translate }}</label>
-                <input type="password" class="form-control" formControlName="password">
+                <label for="pass">{{ 'PASSWORD' | translate }}</label>
+                <input id="pass" type="password" class="form-control" formControlName="password">
             </div>
             <div *ngIf="errorLogin" class="alert alert-danger">{{ 'LOGIN_VALID' | translate }}</div>
             <button mat-raised-button type="submit" [disabled]="!userLogin.valid" class="login-button">{{ 'SEND_OTP' | translate }}</button>

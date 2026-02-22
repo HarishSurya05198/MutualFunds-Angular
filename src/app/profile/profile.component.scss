@@ -47,6 +47,11 @@ input.ng-invalid {
   .content-container{
     width: 100%;
   }
+
+  .table{
+    width: 100%;
+    table-layout: fixed;
+  }
   
   .register-button{
     margin-top: 1rem;

@@ -10,25 +10,25 @@
       <div class="container">
         <form [formGroup]="userRegister" (ngSubmit)="verifyPassword()">
           <div class="form-group">
-            <label>{{ 'NAME' | translate }}</label>
-            <input type="text" class="form-control" formControlName="name">
+            <label for="name">{{ 'NAME' | translate }}</label>
+            <input id="name" type="text" class="form-control" formControlName="name">
           </div>
           <div class="form-group">
-              <label>{{ 'EMAIL' | translate }}</label>
-              <input type="text" class="form-control" formControlName="email">
+              <label for="email">{{ 'EMAIL' | translate }}</label>
+              <input id="email" type="text" class="form-control" formControlName="email">
               <div *ngIf="userRegister.controls['email'].hasError('pattern')" class="alert alert-danger">{{ 'EMAIL_VALID' | translate }}</div>
           </div>
           <div class="form-group">
-            <label>{{ 'PHONE' | translate }}</label>
-            <input type="text" class="form-control" formControlName="phone">
+            <label for="phone">{{ 'PHONE' | translate }}</label>
+            <input id="phone" type="text" class="form-control" formControlName="phone">
           </div>
           <div class="form-group">
-              <label>{{ 'PASSWORD' | translate }}</label>
-              <input type="password" class="form-control" formControlName="password">
+              <label for="pass">{{ 'PASSWORD' | translate }}</label>
+              <input id="pass" type="password" class="form-control" formControlName="password">
           </div>
           <div class="form-group">
-            <label>{{ 'CONFIRM_PASSWORD' | translate }}</label>
-            <input type="password" class="form-control" formControlName="confirmPassword">
+            <label for="confpass">{{ 'CONFIRM_PASSWORD' | translate }}</label>
+            <input id="confpass" type="password" class="form-control" formControlName="confirmPassword">
         </div>
           <button mat-raised-button type="submit" [disabled]="!userRegister.valid" class="register-button">{{ 'REGISTER' | translate }}</button>
       </form>

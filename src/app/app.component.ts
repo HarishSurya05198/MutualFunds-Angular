@@ -36,10 +36,6 @@ export class AppComponent {
     })
   }
 
-  ngOnDestroy(){
-    this.guard.logout();
-  }
-
   langChange(e:any){
     this.translate.use(e);
   }
