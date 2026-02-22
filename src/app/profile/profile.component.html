@@ -13,21 +13,21 @@
       <div class="container">
         <form *ngIf="editEnabled" [formGroup]="userRegister">
           <div class="form-group">
-            <label>{{ 'NAME' | translate }}</label>
-            <input type="text" class="form-control" formControlName="name">
+            <label for="name">{{ 'NAME' | translate }}</label>
+            <input id="name" type="text" class="form-control" formControlName="name">
           </div>
           <div class="form-group">
-              <label>{{ 'EMAIL' | translate }}</label>
-              <input type="text" class="form-control" formControlName="email">
+              <label for="email">{{ 'EMAIL' | translate }}</label>
+              <input id="email" type="text" class="form-control" formControlName="email">
               <div *ngIf="userRegister.controls['email'].hasError('pattern')" class="alert alert-danger">Enter a valid email</div>
           </div>
           <div class="form-group">
-            <label>{{ 'PHONE' | translate }}</label>
-            <input type="text" class="form-control" formControlName="phone">
+            <label for="phone">{{ 'PHONE' | translate }}</label>
+            <input id="phone" type="text" class="form-control" formControlName="phone">
           </div>
           <div class="form-group">
-              <label>{{ 'PASSWORD' | translate }}</label>
-              <input type="password" class="form-control" formControlName="password">
+              <label for="pass">{{ 'PASSWORD' | translate }}</label>
+              <input id="pass" type="password" class="form-control" formControlName="password">
           </div>
           <div class="action-buttons ml-auto">
             <button mat-raised-button (click)="onSubmit()" type="submit" [disabled]="!userRegister.valid" class="register-button">{{ 'UPDATE' | translate }}</button>
@@ -67,8 +67,8 @@
                 {{passwordField}}
             </td>
             <td>
-                <img class="icons" *ngIf="passwordHide" src="show.svg" (click)="passworToggle()">
-                <img class="icons" *ngIf="!passwordHide" src="hide.svg" (click)="passworToggle()">
+                <img alt="show-pass" class="icons" *ngIf="passwordHide" src="show.svg" (click)="passworToggle()">
+                <img alt="hide-pass" class="icons" *ngIf="!passwordHide" src="hide.svg" (click)="passworToggle()">
             </td>
         </tr>
       </table>
