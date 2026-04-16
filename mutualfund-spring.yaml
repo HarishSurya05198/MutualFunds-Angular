@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mutual-funds-backend-app
+  labels:
+    app: spring
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mutualfunds-spring-pod
+  template:
+    metadata:
+      labels: 
+        app: mutualfunds-spring-pod
+    spec:
+      containers:
+
+        - name: spring-app
+          image: mutual-funds-spring:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 4040
+              name: spring-port
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: dev
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mutual-funds-back-service
+spec:
+  selector:
+    app: mutualfunds-spring-pod
+  ports:
+    - protocol: TCP
+      port: 4040
+      targetPort: 4040
+  type: NodePort #in local  #LoadBalancer in prod

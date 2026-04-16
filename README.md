@@ -25,3 +25,31 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+# docker buildx build -t mutual-funds-front:v1 .  
+# docker run -d -p 8000:8000 --name angular-app mutual-funds-front:v1
+
+# minikube start (after opening docker desktop)
+# minikube image load imageName:tag
+# minikube image ls
+# kubectl apply -f filename.yaml
+# kubectl exec -i db-pod-0 -- psql -u username -d dbname < backup.sql (dump data from existing db)
+# kubectl exec -it db-pod-0 -- psql -u username -d dbname , then run DROP SCHEMA public CASCADE; and CREATE SCHEMA public; (if dumping data have issues)
+# kubectl get pods/svc/deployments
+# kubectl logs podname
+# kubectl describe pod/svc/deployment name
+# once deployment and service starts running successfully
+# kubectl port-forward service/serviceName newport:createdport (spring) or minikube service serviceName (angular)
+# kubectl delete -f filename.yaml (stop deployment/pod/service)
+# kubectl delete statefulset name (stop stateful avoid DB data deletion)
+# minikube stop
+
+
+# aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
+# docker tag mutual-funds-front:v1 public.ecr.aws/k6z9s9k6/mutualfunds-angular-repo
+# docker push public.ecr.aws/k6z9s9k6/mutualfunds-angular-repo
+# docker run -p 8000:8000 public.ecr.aws/k6z9s9k6/mutualfunds-angular-repo:latest (test in local)
+# eksctl create cluster --name frontend-cluster --region us-east-1 --without-nodegroup
+# eksctl create nodegroup --cluster frontend-cluster --name mutualfunds-nodegroup --region us-east-1 --nodes 1 --node-type t3.medium --managed=false
+# kubectl apply -f deployment and service yaml files

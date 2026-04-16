@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mutual-funds-angular-app
+  labels:
+    app: angular
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mutualfunds-pod
+  template:
+    metadata:
+      labels: 
+        app: mutualfunds-pod
+    spec:
+      containers:
+        - name: angular-app
+          # image: public.ecr.aws/k6z9s9k6/mutualfunds-angular-repo:latest
+          image: mutual-funds-front:v1 #in local
+          imagePullPolicy: Never #in local  #Always in prod
+          ports:
+            - containerPort: 8000
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mutual-funds-front-service
+spec:
+  selector:
+    app: mutualfunds-pod
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8000
+  type: NodePort #in local  #LoadBalancer in prod
+
+# services:
+#   mutualfundapp:
+#     image: mutualfundapp
+#     build:
+#       context: .
+#       dockerfile: ./Dockerfile
+#     environment:
+#       NODE_ENV: production
+#     ports:
+#       - 3000:3000
